@@ -1,10 +1,10 @@
 # pdfCombine
 
 ## Description
-#### python
+### python
 Combines all given pdfs in a given directory or the directory that the python file is in. 
 
-#### latex
+### latex
 The latex file in the 'non-auto latex' folder needs to be updated manually
 
 ## Use
