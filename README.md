@@ -9,15 +9,15 @@ The latex file in the 'non-auto latex' folder needs to be updated manually
 
 ## Use
 ### python
-#### Gen purpose: 
- python3 auto-pdfcombine.py\
+#### __Gen purpose__: 
+ ```python3 auto-pdfcombine.py```\
  or\
- py auto-pdfcombine.py
+ ```py auto-pdfcombine.py```
  
-#### Define path:
- python3 auto-pdfcombine.py /pdfs\
+#### **Define path:**
+ ```python3 auto-pdfcombine.py /pdfs```\
  or \
- py auto-pdcombine.py /home/pdfs
+ ```py auto-pdcombine.py /home/pdfs```
 
 ### latex
 #### upating the latex file
