@@ -5,7 +5,7 @@
 Combines all given pdfs in a given directory or the directory that the python file is in. 
 
 ### latex
-The latex file in the 'non-auto latex' folder needs to be updated manually
+Combines all given pdfs in the directory of the latex file. The latex file in the 'non-auto latex' folder needs to be updated manually.
 
 ## Use
 ### python
