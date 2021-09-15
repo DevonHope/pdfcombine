@@ -7,11 +7,13 @@ There are three different forms of PDFCombine. The headless python script simply
     - Converts all PowerPoint files and combines the PDFs in a given folder.\
     __location:__ ```auto python/auto-pdfcombine.py```
 
-
+------------------------------
+ UNDER CONSTRUCTION
 - A Python script, GUI
     - Converts from any PowerPoint or Word Document file into PDF and combines them into one PDF.\
     __location:__ ```auto python/py2pdf-gui.py```
 
+------------------------------
 
 - A Latex script
     - Combines all PDFs listed in the file.\
