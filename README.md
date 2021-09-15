@@ -1,17 +1,22 @@
-# pdfCombine
+# PDFCombine
 
 ## Description
-The PDFCombine software can be used in three different ways as of right now.\\
-    - A Python script using no GUI\
-    - A Python script using a GUI\
-    - A Latex script
+The PDFCombine software can be used in three different ways as of right now. The headless python script simply combines all pdf files in the folder is it is in or a folder that is specified by the command line. The GUI python script can convert files from .pptx, .ppt, .doc, and .docx to .pdf and then combine them all into one PDF. The Latex file combines all listed PDF files into one Latex PDF.
+
+- A Python script, headless
+    - Combines all PDFs in a given folder.\
+    __location:__ ```auto python/auto-pdfcombine.py```
 
 
-### python
-Combines all given pdfs in a given directory or the directory that the python file is in.
+- A Python script, GUI
+    - Converts from any PowerPoint or Word Document file into PDF and combines them into one PDF.\
+    __location:__ ```auto python/py2pdf-gui.py```
 
-### latex
-Combines all given pdfs in the directory of the latex file. The latex file in the 'non-auto latex' folder needs to be updated manually.
+
+- A Latex script
+    - Combines all PDFs listed in the file.\
+    __location:__ ```non-auto tex/pdfCombine.tex```
+
 
 ## Use
 ### python
