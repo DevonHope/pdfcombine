@@ -1,10 +1,10 @@
 # PDFCombine
 
 ## Description
-The PDFCombine software can be used in three different ways as of right now. The headless python script simply combines all pdf files in the folder is it is in or a folder that is specified by the command line. The GUI python script can convert files from .pptx, .ppt, .doc, and .docx to .pdf and then combine them all into one PDF. The Latex file combines all listed PDF files into one Latex PDF.
+There are three different forms of PDFCombine. The headless python script simply converts all PowerPoint files and combines the pdf files in the folder is in or a folder that is specified by the command line. The GUI python script can convert files from .pptx, .ppt, .doc, and .docx to .pdf and then combine them all into one PDF. The Latex file combines all listed PDF files into one Latex PDF.
 
 - A Python script, headless
-    - Combines all PDFs in a given folder.\
+    - Converts all PowerPoint files and combines the PDFs in a given folder.\
     __location:__ ```auto python/auto-pdfcombine.py```
 
 
@@ -19,20 +19,27 @@ The PDFCombine software can be used in three different ways as of right now. The
 
 
 ## Use
-### python
-- __General purpose__: \
- ```python3 auto-pdfcombine.py```\
- or\
- ```py auto-pdfcombine.py```
 
-- **Define path:**\
- ```python3 auto-pdfcombine.py /pdfs```\
- or \
- ```py auto-pdcombine.py /home/pdfs```
+#### Python Headless
+Requires Python3
+- If Python file is placed in folder with files to convert/combine:\
+    ```python3 auto-pdfcombine.py```\
+    or\
+    ```py auto-pdfcombine.py```
+
+- If path is defined:\
+    ```python3 auto-pdfcombine.py /pdfs```\
+    or\
+    ```py auto-pdcombine.py /home/pdfs```
+
+#### Python GUI
+Requires Python3
+
+```py py2pdf-gui.py```
 
 ### latex
 - __upating the latex file__\
-change the file names in the latex file to the file names of the pdf files in the same dir as the latex file.
+Change the file names in the latex file to the file names of the pdf files in the same dir as the latex file.
 
 - __Run__\
 Run the latex file in a latex ide or through a terminal
