@@ -1,7 +1,7 @@
 # pdfCombine
 
 ## Description
-The PDFCombine software can be used in three different ways as of right now. \\
+The PDFCombine software can be used in three different ways as of right now.\\
     - A Python script using no GUI\
     - A Python script using a GUI\
     - A Latex script
