@@ -20,7 +20,7 @@ There are three different forms of PDFCombine. The headless python script simply
 
 ## Use
 
-#### Python Headless
+### Python Headless
 Requires Python3
 - If Python file is placed in folder with files to convert/combine:\
     ```python3 auto-pdfcombine.py```\
@@ -32,7 +32,7 @@ Requires Python3
     or\
     ```py auto-pdcombine.py /home/pdfs```
 
-#### Python GUI
+### Python GUI
 Requires Python3
 
 ```py py2pdf-gui.py```
