@@ -5,16 +5,20 @@ import pip
 import importlib
 import sys
 from os import listdir, startfile, system
-from os.path import isfile, join, splitext
+from os.path import isfile, join, splitext, exists
 from glob import glob
 import win32com.client
 import subprocess
-from docx2pdf import convert as dcon
-from PyPDF2 import PdfFileMerger, PdfFileReader
-from ppt2pdf.main import convert as pcon
+import time
+# from docx2pdf import convert as dcon
+# from PyPDF2 import PdfFileMerger, PdfFileReader
+# from ppt2pdf.main import convert as pcon
 
 ftypes = ['All','Custom']
-supported_ftypes = ('.pdf','.pptx', '.docx')
+# ,'.pptx', '.docx'
+supported_ftypes = ('.pdf','.pdf')
+dont_show = False
+log_txt = 'opened = True'
 
 # Left side of app
 
@@ -74,19 +78,26 @@ layout = [
     ]
 ]
 
+def import_with_auto_install(package):
+	try:
+			return importlib.import_module(package)
+	except ImportError:
+			pip.main(['install', package])
+	return importlib.import_module(package)
+
 # combine all pdfs in folder
-def combine(files, fn):
+def combine(files, fn, pypdf):
     ln_list = len(files)
 
     if ln_list < 2:
         print(str(ln_list) + ' PDF files found in this directory...')
     else:
-        output = PdfFileMerger()
+        output = pypdf.PdfFileMerger()
 
         for file in files:
             print("Filename: "+file)
             try:
-                pdf = PdfFileReader(file)
+                pdf = pypdf.PdfFileReader(file)
                 output.append(pdf)
             except:
                 sg.Popup('File was not converted', keep_on_top=True)
@@ -94,7 +105,7 @@ def combine(files, fn):
         output.write(fn)
         startfile(fn)
 
-def autocombine(cw, fn, files):
+def autocombine(cw, fn, files, docx, ppt, pypdf):
     if len(fn) < 1:
 	       fn = "pdfcombine.pdf"
     fn = "\\".join((cw, fn))
@@ -104,22 +115,22 @@ def autocombine(cw, fn, files):
         f = "\\".join((cw, f))
         if f[-4:] == 'pptx':
             fi = f.replace('pptx','pdf')
-            pcon(f,fi)
+            ppt.main.convert(f,fi)
             new_f.append(fi)
         elif f[-4:] == 'docx':
             fi = f.replace('docx','pdf')
-            dcon(f,fi)
+            docx.convert(f,fi)
             new_f.append(fi)
         elif f[-3:] == 'pdf':
             new_f.append(f)
 
     #pptpdf(ppt)
-    combine(new_f, fn)
+    combine(new_f, fn, pypdf)
 
-def launch():
+def launch(pypdf, ppt, docx):
     # Create the window
     window = sg.Window("Py2PDF Combine", layout)
-
+    sg.Popup('MS Powerpoint and Word (.pptx, .ppt, .doc, .docx) file do not work as of right now.', keep_on_top=True)
     # Create an event loop
     while True:
         event, values = window.read()
@@ -204,7 +215,7 @@ def launch():
             # get list of files
             dir = window['-FOLDER-'].get()
             files = window['-SELLIST-'].get_list_values()
-            autocombine(dir, fn, files)
+            autocombine(dir, fn, files, docx, ppt, pypdf)
 
     window.close()
 
@@ -213,4 +224,8 @@ if __name__ == '__main__':
     # FOR LINUX
     #import_with_auto_install('unoconv')
 
-    launch()
+    pypdf = import_with_auto_install('PyPDF2')
+    ppt = import_with_auto_install('ppt2pdf')
+    docx = import_with_auto_install('docx2pdf')
+
+    launch(pypdf, ppt, docx)
